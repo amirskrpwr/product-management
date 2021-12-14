@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+<div>{% block title %}Order Edit{% endblock title %}</div>
+<div>
+  {% block content %}
+  <h1 class="center">Order Edit</h1>
+  <div class="row">
+    {% for order in orders %}
+    <div class="col s4" style="margin-bottom: 20px">
+      <div>Customer Name: {{order.customerName|capfirst}}</div>
+      <ul>
+        {% for product in order.product_set.all %}
+        <li>{{product|capfirst}}</li>
+        {% endfor %}
+      </ul>
+      <div>Date: {{order.date}}</div>
+      <a
+        href="../edit/{{order.id}}/"
+        class="button"
+        style="background-color: yellow"
+        type="submit"
+      >
+        Edit
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+  {% endblock content %}
+</div>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+<div>{% block title %}Add Product {%endblock title %}</div>
+<div>
+  {% block content %}
+  <h1 class="center">Adding Product to the Order {{order|capfirst|title}}</h1>
+  <h2>Products</h2>
+  <form action="." method="POST">
+    {% csrf_token %}
+    <ul>
+      {% for product in products %}
+      <li>
+        {{product.title}} {% if order in product.orders.all %}
+        <input
+          type="checkbox"
+          id="c{{product.id}}"
+          value="{{product.id}}"
+          name="choices"
+          checked
+        />
+        {% else %}
+        <input
+          type="checkbox"
+          id="c{{product.id}}"
+          value="{{product.id}}"
+          name="choices"
+        />
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <button type="submit" name="delete">Delete</button>
+    <button type="submit" name="add">Add</button>
+  </form>
+  {% endblock content %}
+</div>

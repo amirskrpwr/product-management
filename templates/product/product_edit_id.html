@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+<div>{% block title %}Product Edit{% endblock title %}</div>
+<div>
+  {% block content %}
+  <h1 class="center">Editing Product</h1>
+  <form action="." method="POST">
+    {% csrf_token %} {{form.as_p}}
+    <button class="button" style="background-color: #ccc" type="submit">
+      Update Product
+    </button>
+  </form>
+  {% endblock content %}
+</div>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<div>{% block title %}product details{% endblock title %}</div>
+<div>
+  {% block content %}
+  <h1 class="center">Products</h1>
+  <div class="row">
+    {% for product in products %}
+    <div class="col l4">
+      <h2>Name: {{product.title|capfirst}}</h2>
+      <h2>Price: $ {{product.price}}</h2>
+      <p>Description: {{product.description}}</p>
+      <a href="./{{product.id}}" style="background-color: yellow" class="button"
+        >Show</a
+      >
+    </div>
+
+    {% endfor %}
+  </div>
+  {% endblock content %}
+</div>

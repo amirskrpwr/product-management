@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+<div>{% block title %}order detail{% endblock title %}</div>
+<div>
+  {% block content %}
+  <h1 class="center">Order details by id {{order.id}}</h1>
+  <div>Customer Name: {{order.customerName|capfirst}}</div>
+  <ul>
+    {% for product in order.product_set.all %}
+    <li>{{product}}</li>
+    {% endfor %}
+  </ul>
+  <div>Date: {{order.date}}</div>
+  {% endblock content %}
+</div>

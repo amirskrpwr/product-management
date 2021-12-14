@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+<div>{% block title %}create order{% endblock title %}</div>
+<div>
+  {% block content %}
+  <h1 class="center">Creating Order</h1>
+  <form action="." method="POST">
+    {% csrf_token %}{{form.as_p}}
+    <button type="submit" style="background-color: #ccc" class="button">
+      Create Order
+    </button>
+  </form>
+  {% endblock content %}
+</div>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock title %}</title>
+    <style>
+      html,
+      body {
+        font-family: Verdana, sans-serif;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        overflow-x: hidden;
+        box-sizing: border-box;
+      }
+
+      input {
+        margin: 0;
+        font: inherit;
+        overflow: visible;
+      }
+
+      button {
+        overflow: visible;
+        text-transform: none;
+      }
+
+      .button {
+        border: none;
+        display: inline-block;
+        padding: 8px 16px;
+        vertical-align: middle;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        background-color: inherit;
+        text-align: center;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .button:hover {
+        color: #000 !important;
+        background-color: #ccc !important;
+      }
+
+      *:after,
+      *:before {
+        box-sizing: inherit;
+      }
+
+      .content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 980px;
+      }
+
+      .row:after,
+      .row:before,
+      .row-padding:after,
+      .row-padding-before {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .sidenav {
+        height: 100%;
+        width: 200px;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow: hidden;
+        padding-top: 20px;
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #818181;
+        display: block;
+      }
+
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+
+      .main {
+        margin-left: 200px;
+        padding: 0 10px;
+      }
+
+      .input {
+        padding: 8px;
+        display: block;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        width: 100%;
+      }
+
+      .row-padding > .col {
+        padding: 0 8px;
+      }
+
+      .col {
+        width: 100%;
+        float: left;
+      }
+
+      .col.s1 {
+        width: 8.33333%;
+      }
+
+      .col.s2 {
+        width: 16.66666%;
+      }
+
+      .col.s3 {
+        width: 24.99999%;
+      }
+
+      .col.s4 {
+        width: 33.33333%;
+      }
+
+      .col.s5 {
+        width: 41.66666%;
+      }
+
+      .col.s6 {
+        width: 49.99999%;
+      }
+
+      .col.s7 {
+        width: 58.33333%;
+      }
+
+      .col.s8 {
+        width: 66.66666%;
+      }
+
+      .col.s9 {
+        width: 74.99999%;
+      }
+
+      .col.s10 {
+        width: 83.33333%;
+      }
+
+      .col.s11 {
+        width: 91.66666%;
+      }
+
+      .col.s12 {
+        width: 99.99999%;
+      }
+
+      @media (min-width: 601px) {
+        .col.m1 {
+          width: 8.33333%;
+        }
+        .col.m2 {
+          width: 16.66666%;
+        }
+        .col.m3,
+        .quarter {
+          width: 24.99999%;
+        }
+        .col.m4,
+        .third {
+          width: 33.33333%;
+        }
+        .col.m5 {
+          width: 41.66666%;
+        }
+        .col.m6,
+        .half {
+          width: 49.99999%;
+        }
+        .col.m7 {
+          width: 58.33333%;
+        }
+        .col.m8,
+        .twothird {
+          width: 66.66666%;
+        }
+        .col.m9,
+        .threequarter {
+          width: 74.99999%;
+        }
+        .col.m10 {
+          width: 83.33333%;
+        }
+        .col.m11 {
+          width: 91.66666%;
+        }
+        .col.m12 {
+          width: 99.99999%;
+        }
+      }
+
+      @media (min-width: 993px) {
+        .col.l1 {
+          width: 8.33333%;
+        }
+        .col.l2 {
+          width: 16.66666%;
+        }
+        .col.l3 {
+          width: 24.99999%;
+        }
+        .col.l4 {
+          width: 33.33333%;
+        }
+        .col.l5 {
+          width: 41.66666%;
+        }
+        .col.l6 {
+          width: 49.99999%;
+        }
+        .col.l7 {
+          width: 58.33333%;
+        }
+        .col.l8 {
+          width: 66.66666%;
+        }
+        .col.l9 {
+          width: 74.99999%;
+        }
+        .col.l10 {
+          width: 83.33333%;
+        }
+        .col.l11 {
+          width: 91.66666%;
+        }
+        .col.l12 {
+          width: 99.99999%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="sidenav">
+      <a href="/">Home</a>
+      <a href="/products/create">Create Product</a>
+      <a href="/orders/create">Create Order</a>
+      <a href="/products/">View Products</a>
+      <a href="/orders/">View Orders</a>
+      <a href="/products/edit">Edit Products</a>
+      <a href="/orders/edit">Edit Orders</a>
+      <div style="bottom: 20px; position: absolute">
+        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+    <div class="main">
+      <div class="content">
+        <div>{% block content %} replace me {% endblock %}</div>
+      </div>
+    </div>
+  </body>
+</html>

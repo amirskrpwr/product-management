@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+<div>{% block title %}product edit{%endblock title %}</div>
+<div>
+  {% block content %}
+  <h1 class="center">Edit Product</h1>
+  <div>
+    <span>Search: </span>
+    <input type="text" id="search" />
+    <button class="button" style="background-color: yellow">GO</button>
+  </div>
+  <div style="margin-top: 20px" class="row">
+    {% for product in products %}
+    <div class="col l4">
+      <h2>Name: {{product.title|capfirst}}</h2>
+      <h2>Price: $ {{product.price}}</h2>
+      <p>Description: {{product.description}}</p>
+      <a
+        href="./{{product.id}}"
+        class="button"
+        name="edit"
+        id="id {{product.id}}"
+        style="background-color: orange"
+      >
+        Edit
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+  {% endblock content %}
+</div>

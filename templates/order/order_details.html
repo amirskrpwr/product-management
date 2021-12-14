@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+<div>{% block title %}Order Detail{% endblock title %}</div>
+<div>
+  {% block content %}
+  <h1 class="center">ORDERS</h1>
+
+  <div class="row">
+    {% for order in orders %}
+    <div class="col s4" style="margin-bottom: 20px">
+      <div>Customer Name: {{order.customerName|capfirst}}</div>
+      <div>Date: {{order.date}}</div>
+      <a
+        href="./{{order.id}}"
+        class="button"
+        style="background-color: yellow; margin-top: 15px"
+        >Show</a
+      >
+    </div>
+    {% endfor %}
+  </div>
+  {% endblock %}
+</div>
